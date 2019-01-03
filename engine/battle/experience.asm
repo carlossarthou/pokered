@@ -309,19 +309,20 @@ DivideExpDataByNumMonsGainingExp:
 	ld [wd11e], a ; store number of mons gaining exp
 	ld hl, wEnemyMonBaseStats
 	ld c, wEnemyMonBaseExp + 1 - wEnemyMonBaseStats
-.divideLoop
-	xor a
-	ld [H_DIVIDEND], a
-	ld a, [hl]
-	ld [H_DIVIDEND + 1], a
-	ld a, [wd11e]
-	ld [H_DIVISOR], a
-	ld b, $2
-	call Divide ; divide value by number of mons gaining exp
-	ld a, [H_QUOTIENT + 3]
-	ld [hli], a
-	dec c
-	jr nz, .divideLoop
+; Disable code that divides experience between pokemon
+;.divideLoop
+;	xor a
+;	ld [H_DIVIDEND], a
+;	ld a, [hl]
+;	ld [H_DIVIDEND + 1], a
+;	ld a, [wd11e]
+;	ld [H_DIVISOR], a
+;	ld b, $2
+;	call Divide ; divide value by number of mons gaining exp
+;	ld a, [H_QUOTIENT + 3]
+;	ld [hli], a
+;	dec c
+;	jr nz, .divideLoop
 	ret
 
 ; multiplies exp by 1.5
