@@ -2287,10 +2287,11 @@ ItemUseTMHM:
 	ld [wWhichPokemon], a
 	ld a, b
 	and a
-	ret z
-	ld a, [wcf91]
-	call IsItemHM
-	ret c
+; Disable code that deletes a TM after use
+;	ret z
+;	ld a, [wcf91]
+;	call IsItemHM
+;	ret c
 	jp RemoveUsedItem
 
 BootedUpTMText:
